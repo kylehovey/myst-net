@@ -28,4 +28,5 @@ def classify(imgPath):
 
 classification = classify(argv[1])
 
-print pyfiglet.figlet_format(str(classification), font="doh")
+print ""
+print pyfiglet.figlet_format(str(classification), font="colossal")
