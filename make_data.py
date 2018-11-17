@@ -93,5 +93,6 @@ for number, digits in enumerate(numbers):
             second = None
 
         img = compose(bracket, first, second)
+        img = cv2.resize(img, (50, 38))
 
         cv2.imwrite("{}/{}/{}.png".format(savePath, number, i), img)
