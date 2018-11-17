@@ -18,7 +18,15 @@ The hardest part about this project was generating the data necessary to train a
 
 I instead broke down the number system into atomic parts that I could compose together in different combinations. Most characters could be broken down into three parts, but some only could be broken into two. I ended up writing twenty examples of each component, meaning that I could have at least four hundred generated samples of each character making a total of five thousand procedurally generated data points.
 
-![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/20/3.png)
-![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/20/8.png)
-![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/18/10.png)
-![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/3/3.png)
+**Atomic Segments:**
+![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/20/dni_numeral_0000s_0000_Layer-180.png)
+![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/bracket/dni_numeral_0009s_0009_Layer-11.png)
+![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/18/dni_numeral_0000s_0011_Layer-209.png)
+![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/2/dni_numeral_0006s_0008_Layer-52.png)
+
+**Generated Forms:**
+
+![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/20/3.png)
+![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/20/8.png)
+![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/18/10.png)
+![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/3/3.png)
