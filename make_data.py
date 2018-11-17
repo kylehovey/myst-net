@@ -21,8 +21,8 @@ numbers = [
     [ 10, 4 ],
     [ 15 ],
     [ 15, 1 ],
-    [ 17 ],
-    [ 15, 3 ],
+    [ 15, 2 ],
+    [ 18 ],
     [ 15, 4 ],
     [ 20 ],
     [ 20, 1 ],
@@ -30,7 +30,7 @@ numbers = [
     [ 20, 3 ],
     [ 20, 4 ],
 ]
-categories = map(str, [ "bracket", 0, 1, 2, 3, 4, 5, 10, 15, 17, 20 ])
+categories = map(str, [ "bracket", 0, 1, 2, 3, 4, 5, 10, 15, 18, 20 ])
 components = {}
 
 def power2Set(n = 20):
