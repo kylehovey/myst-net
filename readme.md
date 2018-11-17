@@ -19,6 +19,7 @@ The hardest part about this project was generating the data necessary to train a
 I instead broke down the number system into atomic parts that I could compose together in different combinations. Most characters could be broken down into three parts, but some only could be broken into two. I ended up writing twenty examples of each component, meaning that I could have at least four hundred generated samples of each character making a total of five thousand procedurally generated data points.
 
 **Atomic Segments:**
+
 ![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/20/dni_numeral_0000s_0000_Layer-180.png)
 ![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/bracket/dni_numeral_0009s_0009_Layer-11.png)
 ![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/18/dni_numeral_0000s_0011_Layer-209.png)
