@@ -42,7 +42,6 @@ I tested numerous architectures on this data and ended up using a network preced
 
 :ok_hand:
 
-| (Image) | Test Accuracy | Valid Accuracy |
+|         | Test Accuracy | Valid Accuracy |
 |---------|---------------|----------------|
-| ANN     | 95.7%         | 95.4%          |
-| ConvNet | 97.8%         | 98.2%          |
+| MYSTnet | 99.93%        | 99.48%         |
