@@ -1,6 +1,6 @@
 # MYSTnet
 
-## A Convolutional Neural Network for Identifying D'ni Numerals
+## A Convolutional Neural Network for Identifying D'ni Numerals :1234:
 
 ---
 
@@ -18,16 +18,31 @@ The hardest part about this project was generating the data necessary to train a
 
 I instead broke down the number system into atomic parts that I could compose together in different combinations. Most characters could be broken down into three parts, but some only could be broken into two. I ended up writing twenty examples of each component, meaning that I could have at least four hundred generated samples of each character making a total of five thousand procedurally generated data points.
 
-**Atomic Segments:**
+**Example Atomic Segment:**
 
 ![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/20/dni_numeral_0000s_0000_Layer-180.png)
 ![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/bracket/dni_numeral_0009s_0009_Layer-11.png)
 ![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/18/dni_numeral_0000s_0011_Layer-209.png)
 ![Segment](https://raw.githubusercontent.com/kylehovey/myst-net/master/components/2/dni_numeral_0006s_0008_Layer-52.png)
 
-**Generated Forms:**
+**Example Generated Forms:**
 
 ![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/20/3.png)
 ![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/20/8.png)
 ![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/18/10.png)
 ![Form](https://raw.githubusercontent.com/kylehovey/myst-net/master/data/3/3.png)
+
+To combine the data, I added a linear combination of each component image to the other, then used OpenCV to threshold on the values so that everything was either black or white (in hopes of generating higher contrast data). Each image is `200x150` pixels.
+
+### Network Architecture
+
+I tested numerous architectures on this data and ended up using a network preceded by two convolutional layers (with pooling in-between), followed by two fully connected layers ending in 25 output softmax neurons. Each of the convolutional and fully-connected layers used a `ReLU` activation function.
+
+## Accuracy
+
+:ok_hand:
+
+| (Image) | Test Accuracy | Valid Accuracy |
+|---------|---------------|----------------|
+| ANN     | 95.7%         | 95.4%          |
+| ConvNet | 97.8%         | 98.2%          |
