@@ -23,37 +23,37 @@ def genY(digit):
         1 if k == digit else 0 for k in range(25)
     ]
 
-data = []
-for i in range(25):
-    data.append([])
-
-    for inst in range(400):
-        path = "{}/{}/{}.png".format(dataPath, i, inst)
-        data[i].append(readImg(path))
-
-trainX = flatten(
-    map(
-        lambda (i, samples): samples[:numTrain],
-        enumerate(data)
-    )
-)
-
-trainY = flatten(
-    map(lambda i: [ genY(i) ] * numTrain, range(25))
-)
-
-validX = flatten(
-    map(
-        lambda (i, samples): samples[-numValid:],
-        enumerate(data)
-    )
-)
-
-validY = flatten(
-    map(lambda i: [ genY(i) ] * numValid, range(25))
-)
-
 def getData():
+    data = []
+    for i in range(25):
+        data.append([])
+
+        for inst in range(400):
+            path = "{}/{}/{}.png".format(dataPath, i, inst)
+            data[i].append(readImg(path))
+
+    trainX = flatten(
+        map(
+            lambda (i, samples): samples[:numTrain],
+            enumerate(data)
+        )
+    )
+
+    trainY = flatten(
+        map(lambda i: [ genY(i) ] * numTrain, range(25))
+    )
+
+    validX = flatten(
+        map(
+            lambda (i, samples): samples[-numValid:],
+            enumerate(data)
+        )
+    )
+
+    validY = flatten(
+        map(lambda i: [ genY(i) ] * numValid, range(25))
+    )
+
     return (
         np.array(trainX).reshape([-1, 150, 200, 1]),
         np.array(trainY),
