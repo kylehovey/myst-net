@@ -55,8 +55,8 @@ validY = flatten(
 
 def getData():
     return (
-        np.array(trainX).reshape([-1, 50, 38, 1]),
+        np.array(trainX).reshape([-1, 150, 200, 1]),
         np.array(trainY),
-        np.array(validX).reshape([-1, 50, 38, 1]),
+        np.array(validX).reshape([-1, 150, 200, 1]),
         np.array(validY)
     )

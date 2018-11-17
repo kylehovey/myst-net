@@ -16,18 +16,18 @@ class StopEarlyCallback(tflearn.callbacks.Callback):
         "Stopped with accuracy {}".format(state.acc_value)
 
 def build_net():
-    network = input_data(shape=[None,50,38,1])
-    network = conv_2d(network, 10, 25, activation="relu")
-    network = max_pool_2d(network, 50)
-    network = conv_2d(network, 5, 5, activation="relu")
+    network = input_data(shape=[None,150,200,1])
+    network = conv_2d(network, 10, 5, activation="relu")
+    network = max_pool_2d(network, 5)
+    network = conv_2d(network, 5, 3, activation="relu")
     network = max_pool_2d(network, 10)
-    network = fully_connected(network, 100, activation="relu")
-    network = dropout(network, 0.6)
+    network = fully_connected(network, 50, activation="relu")
+    network = dropout(network, 0.7)
     network = fully_connected(network, 25, activation="softmax")
     network = regression(
         network,
         optimizer='adam',
-        learning_rate=0.001,
+        learning_rate=0.0001,
         loss='categorical_crossentropy'
     )
 
@@ -36,19 +36,13 @@ def build_net():
 if __name__ == "__main__":
     trainX, trainY, validX, validY = getData()
 
-    print trainX.shape
-    print trainY.shape
-    print validX.shape
-    print validY.shape
-
     net = build_net()
     net.fit(
         trainX,
         trainY,
         validation_set=(validX, validY),
         show_metric=True,
-        n_epoch=200,
-        callbacks=StopEarlyCallback(0.9)
+        n_epoch=10
     )
 
     net.save("./net/dni_reader.tfl")
