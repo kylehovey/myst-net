@@ -4,17 +4,6 @@ from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.estimator import regression
 
-# Found on
-# http://mckinziebrandon.me/TensorflowNotebooks/2016/11/28/early-stop-solution.html
-class StopEarlyCallback(tflearn.callbacks.Callback):
-    def __init__(self, thresh):
-        self.thresh = thresh
-    def on_epoch_end(self, state):
-        if state.acc_value > self.thresh:
-            raise StopIteration
-    def on_train_end(self, state):
-        "Stopped with accuracy {}".format(state.acc_value)
-
 def build_net():
     network = input_data(shape=[None,150,200,1])
     network = conv_2d(network, 10, 5, activation="relu")
