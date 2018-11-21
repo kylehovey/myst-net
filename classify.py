@@ -25,8 +25,9 @@ def classify(image):
 
     return np.argmax(prediction)
 
-image = readImg(argv[1])
-classification = classify(image)
+if __name__ == "__main__":
+    image = readImg(argv[1])
+    classification = classify(image)
 
-print ""
-print pyfiglet.figlet_format(str(classification), font="colossal")
+    print ""
+    print pyfiglet.figlet_format(str(classification), font="colossal")
