@@ -10,20 +10,32 @@ import pyfiglet
 
 tf.logging.set_verbosity(tf.logging.ERROR)
 
-netPath = "./net/dni_reader.tfl"
-print "Building Network..."
-net = build_net()
-print "Loading Network Weights..."
-net.load(netPath, weights_only=True)
+def classify_with_net(net, image, verbose=True):
+    if verbose:
+        print "Reading Image"
 
-def classify(image):
-    print "Reading Image"
     data = np.array([image]).reshape([1, 150, 200, 1])
 
-    print "Classifying"
+    if verbose:
+        print "Classifying"
+
     prediction = net.predict(data)[0]
 
     return np.argmax(prediction)
+
+
+def classify(image, verbose=True):
+    netPath = "./net/dni_reader.tfl"
+
+    if verbose:
+        print "Building Network..."
+    net = build_net()
+
+    if verbose:
+        print "Loading Network Weights..."
+    net.load(netPath, weights_only=True)
+
+    return classify_with_net(net, image, verbose)
 
 if __name__ == "__main__":
     image = readImg(argv[1])

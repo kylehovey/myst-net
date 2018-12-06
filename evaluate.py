@@ -7,5 +7,7 @@ net = build_net()
 net.load(netPath, weights_only=True)
 trainX, trainY, validX, validY = getData()
 
-print net.evaluate(trainX, trainY)
-print net.evaluate(validX, validY)
+print "Training Accuracy"
+print net.evaluate(trainX, trainY)[0]
+print "Validation Accuracy"
+print net.evaluate(validX, validY)[0]

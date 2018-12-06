@@ -63,14 +63,6 @@ def getCombos(n):
     else:
         return threeCombos
 
-for category in categories:
-    for dirpath, dnames, fnames in os.walk("{}/{}".format(path, category)):
-        components[category] = []
-        for file in fnames:
-            imagePath = os.path.join(dirpath, file)
-            image = cv2.imread(imagePath)
-            components[category].append(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY))
-
 def compose(A, B, C=None):
     img = cv2.addWeighted(A, 0.5,  B, 0.5, 0)
     if C is not None:
@@ -80,18 +72,28 @@ def compose(A, B, C=None):
 
     return thresh
 
-for number, digits in enumerate(numbers):
-    combos = getCombos(len(digits))
+if __name__ == "__main__":
 
-    for i, wumbo in enumerate(combos):
-        bracket = components["bracket"][wumbo[0]]
-        first = components[str(digits[0])][wumbo[1]]
+    for category in categories:
+        for dirpath, dnames, fnames in os.walk("{}/{}".format(path, category)):
+            components[category] = []
+            for file in fnames:
+                imagePath = os.path.join(dirpath, file)
+                image = cv2.imread(imagePath)
+                components[category].append(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY))
 
-        if len(digits) == 2:
-            second = components[str(digits[1])][wumbo[2]]
-        else:
-            second = None
+    for number, digits in enumerate(numbers):
+        combos = getCombos(len(digits))
 
-        img = compose(bracket, first, second)
+        for i, wumbo in enumerate(combos):
+            bracket = components["bracket"][wumbo[0]]
+            first = components[str(digits[0])][wumbo[1]]
 
-        cv2.imwrite("{}/{}/{}.png".format(savePath, number, i), img)
+            if len(digits) == 2:
+                second = components[str(digits[1])][wumbo[2]]
+            else:
+                second = None
+
+            img = compose(bracket, first, second)
+
+            cv2.imwrite("{}/{}/{}.png".format(savePath, number, i), img)
