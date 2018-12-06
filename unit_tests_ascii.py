@@ -1,4 +1,4 @@
-from unit_tests import printESC, printColor, testLoadImage, testProcessImage, testLoadData, testLoadNet, testRunNet, testTestingAccuracy, testValidationAccuracy
+from unit_tests import printESC, printColor, testLoadImage, testLoadData, testLoadNet, testRunNet, testTestingAccuracy, testValidationAccuracy
 
 # <=< Testing Utility Functions >=>
 class Test():
@@ -27,7 +27,6 @@ if __name__ == "__main__":
     testing = Test()
 
     testing.it("loads images from the filesystem", "Image Loading", testLoadImage)
-    testing.it("processes a loaded image for the network", "Image Processing", testProcessImage)
     testing.it("loads and formats all training and validation data", "Data Loading", testLoadData)
     testing.it("loads the network itself", "Network Loading", testLoadNet)
     testing.it("runs the network on input data", "Network Running", testRunNet)
